@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet">
   <style>
     html {
-      background: #B5001C url(./bagel.gif) no-repeat center center fixed;
+      background: #B5001C url(bagel.gif) no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: system-ui, inconsolata, menlo, sans-serif;
@@ -45,8 +45,7 @@
       top: 0; right: 0; bottom: 0; left: 0;
       z-index: -99;
     }
-    .video-fg,
-    .video-bg iframe {
+    .video-fg {
       position: absolute;
       top: 0;
       left: 0;
@@ -69,12 +68,15 @@
       <p>exploring the landscape of schmear delivery</p>
     </div>
   </div>
-  <!-- <audio src="./dreams.mp3" type="audio/mp3" autoplay></audio> -->
   <div class="video-bg">
-    <div class="video-fg">
-      <iframe src="https://www.youtube.com/embed/EErSKhC0CZs?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=EErSKhC0CZs"
-        frameborder="0"></iframe>
-    </div>
+    <video class="video-fg" src="dreams.mp4" loop type="video/mp4" preload="none"></video>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        document.querySelector('video').play()
+      }, 420)
+    })
+  </script>
 </body>
 </html>
