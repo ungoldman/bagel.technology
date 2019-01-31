@@ -71,6 +71,11 @@
       height: 100%;
       pointer-events: none;
     }
+    #play {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
     @media (min-aspect-ratio: 16/9) {
       .video-fg { height: 300%; top: -100%; }
     }
@@ -84,6 +89,7 @@
     <div class="section-body">
       <h1 class="title">Bagel Technology</h1>
       <p>exploring the landscape of schmear delivery</p>
+      <button id="play">🎵</button>
     </div>
   </div>
   <div class="video-bg">
@@ -91,9 +97,12 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(function () {
-        document.querySelector('video').play()
-      }, 420)
+      const v = document.querySelector('video')
+      const b = document.querySelector('#play')
+      b.onclick = function () {
+        if (v.paused) return v.play()
+        else v.pause()
+      }
     })
   </script>
 </body>
