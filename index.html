@@ -38,6 +38,28 @@
       text-transform: uppercase;
       text-shadow: -0.05em 0 red, 0.05em 0 cyan;
     }
+    .video-bg {
+      opacity: 0.5;
+      background: #000;
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -99;
+    }
+    .video-fg,
+    .video-bg iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    @media (min-aspect-ratio: 16/9) {
+      .video-fg { height: 300%; top: -100%; }
+    }
+    @media (max-aspect-ratio: 16/9) {
+      .video-fg { width: 300%; left: -100%; }
+    }
   </style>
 </head>
 <body>
@@ -47,6 +69,12 @@
       <p>exploring the landscape of schmear delivery</p>
     </div>
   </div>
-  <audio src="./dreams.mp3" type="audio/mp3" autoplay></audio>
+  <!-- <audio src="./dreams.mp3" type="audio/mp3" autoplay></audio> -->
+  <div class="video-bg">
+    <div class="video-fg">
+      <iframe src="https://www.youtube.com/embed/EErSKhC0CZs?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=EErSKhC0CZs"
+        frameborder="0"></iframe>
+    </div>
+  </div>
 </body>
 </html>
